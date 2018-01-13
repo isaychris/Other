@@ -156,10 +156,11 @@ int main() {
 	vending o;
 
 	o.insert("Snickers", 1.25, 5);
-	o.insert("Skittles", 1.25, 5);
+	o.insert("Skittles", 1.00, 5);
 	o.insert("Waifu", 100.00, 1);
-	o.insert("Used Panties", 2.25, 5);
-
+	o.insert("Ramen", 1.25, 5);
+	o.insert("PS4", 200.00, 1);
+	o.insert("Bitcoin", 13050.00, 1);
 
 	while (s == 'y') {
 		o.menu();
