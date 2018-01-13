@@ -17,4 +17,4 @@ Small projects
 - cannonball
 > A calculator for runescape which calculates the time it takes to smelt steel bars, create cannon balls, and calculate profit.
 - powerball
-> A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are.
+> A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are. Inspired by the $1.5B jackpot in 2016.
