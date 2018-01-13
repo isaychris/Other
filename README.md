@@ -16,3 +16,5 @@ Small projects
 > Just a simple vending machine where the user can select an item from a list, put some money in, and it returns the item and change.
 - cannonball
 > A calculator for runescape which calculates the time it takes to smelt steel bars, create cannon balls, and calculate profit.
+- powerball
+> A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are.
