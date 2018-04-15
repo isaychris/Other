@@ -1,6 +1,6 @@
 # Other
 Small projects
-- duel arena
+- duel arena (https://repl.it/@isaychris/duelarena-v17-1)
 > A gambling simulator inspired by the duel arena in the game Runescape. The game has its own betting system, with the ability for the user to buy items from a store and equip them to gain special abilities. The user can bet their money by playing games such as fighting, rolling dice, and hangman. The game also has cheats the user can enter.
 - textRPG: 
 > A text best RGP inspired by the game Runescape. Here the user can level up there characters by gaining experience points from fighting randomly generated monsters. These monsters also drop rare items that the character can equip to increase their max hit. The game also has a general store where the user can sell and buy items. This game was created to refresh my programming skills. It focuses on inheritance, pointers, and encapsulation.
