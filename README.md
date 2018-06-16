@@ -23,5 +23,3 @@ Small side programs/projects/games. Screenshots provided in each folder
 > Just a simple vending machine where the user can select an item from a list, put some money in, and it returns the item and change.
 - powerball: (https://repl.it/@isaychris/PowerBall)
 > A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are. Inspired by the $1.5B jackpot in 2016.
-- palindrome: (https://repl.it/@isaychris/PowerBall)
-> A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are. Inspired by the $1.5B jackpot in 2016.
