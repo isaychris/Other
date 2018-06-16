@@ -1,10 +1,12 @@
 # Other
-Small projects. Screenshots provided in each folder
+Small side programs/projects/games. Screenshots provided in each folder
 
 - duel arena: (https://repl.it/@isaychris/duelarena-v17-1)
 > A gambling simulator inspired by the duel arena in the game Runescape. The game has its own betting system, with the ability for the user to buy items from a store and equip them to gain special abilities. The user can bet their money by playing games such as fighting, rolling dice, and hangman. The game also has cheats the user can enter.
 - textRPG: (https://repl.it/@isaychris/textRPGv09)
 > A text best RGP inspired by the game Runescape. Here the user can level up there characters by gaining experience points from fighting randomly generated monsters. These monsters also drop rare items that the character can equip to increase their max hit. The game also has a general store where the user can sell and buy items. This game was created to refresh my programming skills. It focuses on inheritance, pointers, and encapsulation.
+- textRPG-rewrite: (https://repl.it/@isaychris/textRPG-rewrite)
+> A rewrite and improved version of textRPG in python. Currently WIP.
 - snake
 > The classic snake game where the user must control a snake and eat apples to score points. The user loses when the snake head touches the snakes body. This was created to test out the game programming patterns. The snake is implemented through the use of a linked list.
 - cannonball
@@ -20,4 +22,6 @@ Small projects. Screenshots provided in each folder
 - vending
 > Just a simple vending machine where the user can select an item from a list, put some money in, and it returns the item and change.
 - powerball: (https://repl.it/@isaychris/PowerBall)
+> A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are. Inspired by the $1.5B jackpot in 2016.
+- palindrome: (https://repl.it/@isaychris/PowerBall)
 > A lottery simulator which keeps generating lottery tickets until all 6 numbers match. Find out how lucky you are. Inspired by the $1.5B jackpot in 2016.
