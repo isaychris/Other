@@ -1,6 +1,8 @@
 # Other
 Small side programs/projects/games. Screenshots provided in each folder
 
+- dio-reddit-bot:
+> This is a comment bot for reddit which uses the praw api to respond to latest comments from /r/anime that contain the word dio with a picture of dio.
 - duel arena: (https://repl.it/@isaychris/duelarena-v17-1)
 > A gambling simulator inspired by the duel arena in the game Runescape. The game has its own betting system, with the ability for the user to buy items from a store and equip them to gain special abilities. The user can bet their money by playing games such as fighting, rolling dice, and hangman. The game also has cheats the user can enter.
 - textRPG: (https://repl.it/@isaychris/textRPGv09)
