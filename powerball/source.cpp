@@ -1,25 +1,25 @@
 //Author: iSayChris
-//Program: Simulates the powerball lottery.
+//Program: Simulates the mega million lottery.
 //Date: 1/13/16
 
 #include <stdlib.h>
 #include <time.h> 
 #include <iostream>
+#include <climits>
 
 using namespace std;
+
+const int whiteball_MAX = 70;
+const int powerball_MAX = 26;
+const int matchCounter_MAX = 6;
+int whiteball[whiteball_MAX];
 
 int winning[6];
 int ticket[6];
 
 int ticketCounter;
 int matchCounter;
-
-const int whiteball_MAX = 50;
-const int powerball_MAX = 20;
-const int matchCounter_MAX = 6;
-int maxCounter = 0;
-
-int whiteball[whiteball_MAX];
+int maxCounter;
 
 void fillArrayBalls();
 void shuffleBalls();
@@ -52,7 +52,7 @@ int main() {
 
 		checkNumbers();
 
-		if (ticketCounter > 2000000000) {
+		if (ticketCounter > INT_MAX) {
 			maxCounter++;
 			ticketCounter = 0;
 		}
@@ -65,7 +65,9 @@ int main() {
 	cout << " Your numbers:     " << ticket[0] << " " << ticket[1] << " " << ticket[2] << " " << ticket[3] << " " << ticket[4] << " PWR " << ticket[5] << endl << endl;
 
 	cout << " Total matched:    " << matchCounter << endl;
-	cout << " Total tickets used: " << maxCounter << endl;
+	cout << " Total tickets used: " << (maxCounter * INT_MAX ) + ticketCounter << endl;
+  	cout << " Total money spent: $" << ((maxCounter * INT_MAX ) + ticketCounter) * 2 << endl;
+
 	cout << "|--------------------------------------|" << endl << endl;
 
 	cout << "Congratulations, you're a winner!" << endl << endl;
@@ -89,10 +91,10 @@ void fillArrayBalls() { //fills whiteball and powerball arrays with numbers.
 	}
 }
 
-void shuffleBalls() { //shuffles the whiteballs and balls.
+void shuffleBalls() { //shuffles the whiteballs.
 	for (int i = 0; i < whiteball_MAX; i++) {
 		int temp = whiteball[i];
-		int randomIndex = rand() % whiteball_MAX;
+		int randomIndex = rand() % whiteball_MAX + 1;
 
 		whiteball[i] = whiteball[randomIndex];
 		whiteball[randomIndex] = temp;
