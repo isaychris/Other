@@ -1,101 +1,159 @@
 //Author: iSayChris
-//Program: Simulates the mega million lottery.
+//Program: Simulates the powerball lottery.
 //Date: 1/13/16
 
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
 #include <iostream>
 #include <climits>
-#include <set>
 
 using namespace std;
 
-int winning[5];
-int ticket[5];
-int winning_powerball;
-int ticket_powerball;
-
-int matchCounter = 0;
-
 const int whiteball_MAX = 70;
 const int powerball_MAX = 26;
+const int match_MAX = 6;
 
-int whiteball[whiteball_MAX];
+class Lottery {
+private:
+    int winning[6];
+    int ticket[6];
+    int whiteball[whiteball_MAX];
 
-void fillArrayBalls();
-void shuffleBalls();
-void generateWinningNumbers();
-void checkNumbers();
+    int ticketCounter = 0;
+    int matchCounter = 0;
+    int maxCounter = 0;
 
-int main() {
-	srand(time(NULL));
+    void fillArrayBalls();
+    void shuffleBalls();
+    void generateWinningNumbers();
+    void checkNumbers();
 
-	fillArrayBalls();
-	generateWinningNumbers();
+public:
+    Lottery()
+    {
+        fillArrayBalls();
+        generateWinningNumbers();
+    }
 
-	cout << "// Powerball lottery" << endl;
-	cout << "// Match all 6 numbers and win 1.5 Billion dollars!" << endl << endl;
+    void generateTicket();
+    void displayWinningNumbers();
+    void displayTicket();
+};
 
-	cout << "Winning numbers: " << winning[0] << " " << winning[1] << " " << winning[2] << " " << winning[3] << " " << winning[4] << " PWR " << winning_powerball << endl;
+int main()
+{
+    srand(time(NULL));
 
-	cout << "--------------------------------------" << endl;
-	cout << "Generating tickets, please wait..." << endl << endl;
+    cout << "// Powerball lottery" << endl;
+    cout << "// Match all 6 numbers and win 1.5 Billion dollars!" << endl
+         << endl;
 
-  shuffleBalls();
+    Lottery l;
+    l.displayWinningNumbers();
 
-  for (int i = 0; i < 5; i++) {
-    ticket[i] = whiteball[i];
-  }
-  ticket_powerball = rand() % powerball_MAX + 1;
-  
-  set<int> s(ticket, ticket + sizeof(ticket)/ticket[0]);
+    cout << "--------------------------------------" << endl;
+    cout << "Generating tickets, please wait..." << endl
+         << endl;
 
-  for (int i = 0; i < 5; i++) {
-    if (s.count(winning[i])) {
-      matchCounter++;
-    } 
-  }
+    l.generateTicket();
+    l.displayTicket();
 
-  if (ticket_powerball == winning_powerball) {
-    matchCounter++;
-  }
-
-	cout << "|------------Lottery Ticket------------|" << endl;
-	cout << " Your numbers:     " << ticket[0] << " " << ticket[1] << " " << ticket[2] << " " << ticket[3] << " " << ticket[4] << " PWR " << ticket_powerball << endl << endl;
-
-	cout << " Total matched:    " << matchCounter << endl;
-	cout << "|--------------------------------------|" << endl << endl;
-
-  if(matchCounter == 6) {
-    cout << "You matched all 6 numbers! You're a billionare!";
-  } else {
-    cout << "You lose. Try again." << endl;
-  }
-	return 0;
+    return 0;
 }
 
-void generateWinningNumbers() { //generates the winning numbers.
-	shuffleBalls();
+//generates tickets
+void Lottery::generateTicket()
+{
+    shuffleBalls();
 
-	for (int i = 0; i < 5; i++) {
-		winning[i] = whiteball[i];
-	}
+    for (int i = 0; i < 5; i++) {
+        ticket[i] = whiteball[i];
+    }
 
-	winning_powerball = rand() % powerball_MAX + 1;
+    ticket[5] = rand() % powerball_MAX + 1;
+
+    checkNumbers();
 }
 
-void fillArrayBalls() { //fills whiteball arrays with numbers.
-	for (int i = 0; i < whiteball_MAX; i++) {
-		whiteball[i] = i + 1;
-	}
+//generates the winning numbers.
+void Lottery::generateWinningNumbers()
+{
+    shuffleBalls();
+
+    for (int i = 0; i < 5; i++) {
+        winning[i] = whiteball[i];
+    }
+
+    winning[5] = rand() % powerball_MAX + 1;
 }
 
-void shuffleBalls() { //shuffles the whiteballs.
-	for (int i = 0; i < whiteball_MAX; i++) {
-		int temp = whiteball[i];
-		int randomIndex = rand() % whiteball_MAX + 1;
+//fills whiteball with numbers.
+void Lottery::fillArrayBalls()
+{
+    for (int i = 0; i < whiteball_MAX; i++) {
+        whiteball[i] = i + 1;
+    }
+}
 
-		whiteball[i] = whiteball[randomIndex];
-		whiteball[randomIndex] = temp;
-	}
+//shuffles the whiteballs.
+void Lottery::shuffleBalls()
+{
+    for (int i = 0; i < whiteball_MAX; i++) {
+        int temp = whiteball[i];
+        int randomIndex = rand() % whiteball_MAX;
+
+        whiteball[i] = whiteball[randomIndex];
+        whiteball[randomIndex] = temp;
+    }
+}
+
+//checks if any numbers match.
+void Lottery::checkNumbers()
+{
+    for (int i = 0; i < 5; i++) {
+        if (ticket[i] == winning[0]) {
+            matchCounter++;
+        }
+        else if (ticket[i] == winning[1]) {
+            matchCounter++;
+        }
+        else if (ticket[i] == winning[2]) {
+            matchCounter++;
+        }
+        else if (ticket[i] == winning[3]) {
+            matchCounter++;
+        }
+        else if (ticket[i] == winning[4]) {
+            matchCounter++;
+        }
+    }
+
+    if (ticket[5] == winning[5]) {
+        matchCounter++;
+    }
+}
+
+//displays winning numbers
+void Lottery::displayWinningNumbers()
+{
+    cout << "Winning numbers: " << winning[0] << " " << winning[1] << " " << winning[2] << " " << winning[3] << " " << winning[4] << " PWR " << winning[5] << endl;
+}
+
+//displays ticket results
+void Lottery::displayTicket()
+{
+    cout << "|------------Lottery Ticket------------|" << endl;
+    cout << " Your numbers:     " << ticket[0] << " " << ticket[1] << " " << ticket[2] << " " << ticket[3] << " " << ticket[4] << " PWR " << ticket[5] << endl
+         << endl;
+
+    cout << " Total matched:    " << matchCounter << endl;
+    cout << "|--------------------------------------|" << endl
+         << endl;
+
+    if (matchCounter == 6) {
+        cout << "You matched all 6 numbers! You're a billionare!";
+    }
+    else {
+        cout << "You lose. Try again." << endl;
+    }
 }
